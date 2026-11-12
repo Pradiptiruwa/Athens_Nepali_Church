@@ -1,8 +1,12 @@
 
-import { NavLink } from "react-router-dom";
+import churchLogo from "../assets/church-logo.png";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
-  const navLinks = [
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const links = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Ministries", path: "/ministries" },
@@ -12,48 +16,81 @@ function Navbar() {
     { name: "Contact", path: "/contact" },
   ];
 
-  return (
-    <nav className="bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  const linkStyle = ({ isActive }) =>
+    `block py-2 font-medium transition ${
+      isActive
+        ? "text-amber-500"
+        : "text-gray-700 hover:text-amber-500"
+    }`;
 
-        {/* Church Logo */}
-        <div className="flex items-center gap-3">
+  return (
+    <nav className="sticky top-0 z-50 border-b border-gray-100 bg-white shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        {/* Logo and Church Name */}
+        <Link
+          to="/"
+          onClick={() => setMenuOpen(false)}
+          className="flex items-center gap-3"
+        >
           <img
-            src="/src/assets/church-logo.png"
-            alt="Athens Nepali Church Logo"
-            className="w-12 h-12 object-contain"
-          />
+  src={churchLogo}
+  alt="Athens Nepali Church Logo"
+  className="h-12 w-12 rounded-full object-contain"
+/>
 
           <div>
-            <h1 className="text-lg font-bold text-slate-900">
-              ATHENS NEPALI
-            </h1>
-            <p className="text-xs tracking-widest text-amber-700">
-              CHURCH
+            <h2 className="text-lg font-bold leading-tight text-[#101D35] md:text-xl">
+              Athens Nepali Church
+            </h2>
+            <p className="text-xs tracking-wider text-gray-500">
+              WORSHIP • CONNECT • GROW
             </p>
           </div>
-        </div>
+        </Link>
 
-        {/* Navigation Links */}
-        <div className="hidden lg:flex items-center gap-6">
-          {navLinks.map((link) => (
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-6 lg:flex">
+          {links.map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
-              className={({ isActive }) =>
-                `text-sm font-medium transition-colors ${
-                  isActive
-                    ? "text-amber-700"
-                    : "text-slate-700 hover:text-amber-700"
-                }`
-              }
+              end={link.path === "/"}
+              className={linkStyle}
             >
               {link.name}
             </NavLink>
           ))}
         </div>
 
+        {/* Mobile Menu Button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="rounded-lg p-2 text-2xl text-[#101D35] hover:bg-gray-100 lg:hidden"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? "✕" : "☰"}
+        </button>
       </div>
+
+      {/* Mobile Navigation */}
+      {menuOpen && (
+        <div className="border-t border-gray-100 bg-white px-6 py-4 shadow-lg lg:hidden">
+          <div className="flex flex-col">
+            {links.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                end={link.path === "/"}
+                onClick={() => setMenuOpen(false)}
+                className={linkStyle}
+              >
+                {link.name}
+              </NavLink>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

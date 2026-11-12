@@ -10,6 +10,7 @@ import Events from "./pages/Events";
 import Gallery from "./pages/Gallery";
 import Sermons from "./pages/Sermons";
 import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path="/sermons" element={<Sermons />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
+
     </BrowserRouter>
   );
 }
