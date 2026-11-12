@@ -1,4 +1,5 @@
 
+import churchLogo from "../assets/church-logo.png";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -7,9 +8,21 @@ function Footer() {
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-3">
         {/* Church Information */}
         <div>
-          <h2 className="text-2xl font-bold">
-            Athens <span className="text-amber-400">Nepali Church</span>
-          </h2>
+          
+          <div className="flex items-center gap-3">
+  <img
+    src={churchLogo}
+    alt="Athens Nepali Church Logo"
+    className="h-14 w-14 rounded-full object-contain"
+  />
+
+  <h2 className="text-xl font-bold">
+    Athens <span className="text-amber-400">Nepali Church</span>
+  </h2>
+</div>
+
+
+
           <p className="mt-5 max-w-sm leading-7 text-gray-400">
             A place to worship, connect, and grow together in Christ.
             We welcome everyone to join our church family.
