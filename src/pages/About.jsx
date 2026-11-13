@@ -1,114 +1,111 @@
 
 import { Link } from "react-router-dom";
+import group from "../assets/gallery/group.jpeg";
+import worship from "../assets/gallery/worship.jpeg";
 
 function About() {
   return (
-    <main className="bg-white">
-      {/* Page Header */}
-      <section className="bg-slate-950 py-24 px-6 text-center">
-        <p className="text-amber-400 uppercase tracking-[0.3em] text-sm font-semibold">
-          Get to Know Us
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="bg-[#101D35] px-6 py-24 text-center text-white">
+        <p className="font-semibold uppercase tracking-[4px] text-amber-400">
+          Our Story & Our Faith
         </p>
-
-        <h1 className="text-4xl md:text-6xl font-bold text-white mt-5">
+        <h1 className="mt-5 text-4xl font-bold md:text-6xl">
           About Our Church
         </h1>
-
-        <p className="text-slate-300 mt-5 max-w-2xl mx-auto leading-7">
-          A community of believers united by faith, love, and the hope of Jesus Christ.
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-300">
+          A church family growing together in faith, love, and fellowship
+          through God's grace.
         </p>
       </section>
 
       {/* Introduction */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <p className="text-amber-700 uppercase tracking-widest text-sm font-semibold">
-              Who We Are
-            </p>
-
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-4">
-              A Family Growing Together in Christ
-            </h2>
-
-            <p className="text-slate-600 leading-8 mt-6">
-              Athens Nepali Church is a Christian community based in
-              Athens, Greece. We are a family of believers who gather
-              to worship God, learn from His Word, encourage one another,
-              and share His love with others.
-            </p>
-
-            <p className="text-slate-600 leading-8 mt-4">
-              Our desire is to grow spiritually, strengthen our faith,
-              and serve God together as one church family.
-            </p>
-          </div>
-
-          <div className="bg-amber-50 rounded-2xl p-10 md:p-14">
-            <p className="text-amber-700 text-sm font-semibold uppercase tracking-widest">
-              Our Beginning
-            </p>
-
-            <h3 className="text-5xl font-bold text-slate-900 mt-4">
-              07 Nov 2025
-            </h3>
-
-            <p className="text-slate-600 mt-5 leading-7">
-              What began with just five or six believers has grown
-              into a community united by faith and God's grace.
-            </p>
-          </div>
+      <section className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 lg:grid-cols-2">
+        <div>
+          <p className="font-semibold uppercase tracking-[3px] text-amber-600">
+            Who We Are
+          </p>
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-[#101D35] md:text-5xl">
+            A Family United in Christ
+          </h2>
+          <p className="mt-6 leading-8 text-gray-600">
+            Athens Nepali Church is a Christian community based in Athens,
+            Greece. We gather to worship God, study the Bible, pray, and
+            encourage one another in our journey of faith.
+          </p>
+          <p className="mt-4 leading-8 text-gray-600">
+            Our church brings people together as one family, creating a place
+            where everyone can experience fellowship, spiritual growth, and
+            the love of Christ.
+          </p>
+          <Link
+            to="/contact"
+            className="mt-8 inline-block rounded-lg bg-amber-500 px-7 py-3 font-bold text-[#101D35] transition hover:bg-amber-400"
+          >
+            Join Our Church
+          </Link>
         </div>
+
+        <img
+          src={group}
+          alt="Athens Nepali Church family gathering"
+          className="h-[430px] w-full rounded-2xl object-cover shadow-xl"
+        />
       </section>
 
       {/* Church History */}
-      <section className="bg-slate-50 py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
-            <p className="text-amber-700 uppercase tracking-widest text-sm font-semibold">
+      <section className="bg-[#F8F7F3] px-6 py-24">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-14 text-center">
+            <p className="font-semibold uppercase tracking-[3px] text-amber-600">
               Our Journey
             </p>
-
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-4">
-              Our Church History
+            <h2 className="mt-4 text-3xl font-bold text-[#101D35] md:text-5xl">
+              A Small Beginning, A Great Plan of God
             </h2>
           </div>
 
-          <div className="space-y-10">
-            <div className="border-l-4 border-amber-500 pl-6">
-              <p className="text-amber-700 font-semibold">7 November 2025</p>
-              <h3 className="text-xl font-bold text-slate-900 mt-2">
-                A Small Beginning
+          <div className="space-y-8">
+            <div className="rounded-2xl bg-white p-8 shadow-sm md:p-10">
+              <p className="font-bold text-amber-600">November 7, 2025</p>
+              <h3 className="mt-3 text-2xl font-bold text-[#101D35]">
+                The Beginning
               </h3>
-              <p className="text-slate-600 leading-7 mt-3">
-                Athens Nepali Church began with five or six believers.
-                The first worship and fellowship gathering was held
-                at the home of Elder Sagar Sunar, which became the
-                church's first place of worship.
+              <p className="mt-4 leading-8 text-gray-600">
+                Athens Nepali Church began with just five or six believers
+                who came together with faith and a shared desire to worship
+                God. The first worship and fellowship gathering took place
+                at the home of Elder Sagar Sunar.
               </p>
             </div>
 
-            <div className="border-l-4 border-amber-500 pl-6">
-              <p className="text-amber-700 font-semibold">A Growing Community</p>
-              <h3 className="text-xl font-bold text-slate-900 mt-2">
-                Growing Through God's Grace
+            <div className="rounded-2xl bg-white p-8 shadow-sm md:p-10">
+              <p className="font-bold text-amber-600">Growing in Faith</p>
+              <h3 className="mt-3 text-2xl font-bold text-[#101D35]">
+                A Growing Church Family
               </h3>
-              <p className="text-slate-600 leading-7 mt-3">
-                As time passed, more people joined the fellowship.
-                The church community grew to approximately 50–60
-                believers, becoming a stronger family in Christ.
+              <p className="mt-4 leading-8 text-gray-600">
+                What began as a small gathering continued to grow through
+                God's grace. More people joined the fellowship, and the
+                church family grew to approximately 50–60 believers.
               </p>
+              <img
+                src={worship}
+                alt="Church members gathered in worship"
+                className="mt-7 h-72 w-full rounded-xl object-cover"
+              />
             </div>
 
-            <div className="border-l-4 border-amber-500 pl-6">
-              <p className="text-amber-700 font-semibold">First Anniversary</p>
-              <h3 className="text-xl font-bold text-slate-900 mt-2">
+            <div className="rounded-2xl bg-white p-8 shadow-sm md:p-10">
+              <p className="font-bold text-amber-600">First Anniversary</p>
+              <h3 className="mt-3 text-2xl font-bold text-[#101D35]">
                 Celebrating God's Faithfulness
               </h3>
-              <p className="text-slate-600 leading-7 mt-3">
-                We celebrated our first anniversary with gratitude
-                for everything God has done. We look forward to
-                continuing this journey in faith and service.
+              <p className="mt-4 leading-8 text-gray-600">
+                The church celebrated its first anniversary with gratitude
+                for God's faithfulness and all the blessings received
+                throughout the journey.
               </p>
             </div>
           </div>
@@ -116,43 +113,35 @@ function About() {
       </section>
 
       {/* Bible Verse */}
-      <section className="bg-slate-950 py-20 px-6 text-center">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-amber-400 uppercase tracking-widest text-sm font-semibold">
-            Our Testimony
-          </p>
-
-          <h2 className="text-2xl md:text-4xl text-white font-semibold leading-relaxed mt-6">
-            "The LORD has done great things for us, and we are filled with joy."
+      <section className="bg-[#101D35] px-6 py-24 text-center text-white">
+        <div className="mx-auto max-w-4xl">
+          <p className="text-5xl text-amber-400">“</p>
+          <h2 className="mt-4 text-2xl font-medium leading-relaxed md:text-4xl">
+            The LORD has done great things for us, and we are filled with joy.
           </h2>
-
-          <p className="text-amber-400 mt-6 font-semibold">
-            Psalm 126:3
+          <p className="mt-7 font-bold tracking-widest text-amber-400">
+            PSALM 126:3
           </p>
         </div>
       </section>
 
       {/* Closing */}
-      <section className="py-20 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-            A Small Beginning, A Great Plan of God
-          </h2>
-
-          <p className="text-slate-600 mt-5 leading-7">
-            Our journey continues by God's grace, and we invite
-            you to become part of our church family.
-          </p>
-
-          <Link
-            to="/contact"
-            className="inline-block mt-8 bg-amber-500 hover:bg-amber-400 text-slate-950 px-8 py-4 rounded-md font-semibold transition"
-          >
-            Connect With Us
-          </Link>
-        </div>
+      <section className="px-6 py-20 text-center">
+        <h2 className="text-3xl font-bold text-[#101D35] md:text-4xl">
+          A Few Believers, A Great Faith
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl leading-8 text-gray-600">
+          Our journey continues by God's grace and for His glory.
+          We welcome you to become part of our church family.
+        </p>
+        <Link
+          to="/contact"
+          className="mt-8 inline-block rounded-lg bg-amber-500 px-8 py-4 font-bold text-[#101D35] transition hover:bg-amber-400"
+        >
+          Get in Touch
+        </Link>
       </section>
-    </main>
+    </div>
   );
 }
 

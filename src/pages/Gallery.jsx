@@ -1,140 +1,115 @@
 
+import { useState } from "react";
+
 import worship from "../assets/gallery/worship.jpeg";
 import christmas from "../assets/gallery/christmass.jpeg";
 import group from "../assets/gallery/group.jpeg";
-import churchGathering from "../assets/gallery/inchurch.jpeg";
+import inchurch from "../assets/gallery/inchurch.jpeg";
 import prayer from "../assets/gallery/prayer.jpeg";
 import preaching from "../assets/gallery/preeching.jpeg";
 import special from "../assets/gallery/special.jpeg";
 
+const photos = [
+  { image: worship, title: "Worship & Praise" },
+  { image: christmas, title: "Christmas Celebration" },
+  { image: group, title: "Our Church Family" },
+  { image: inchurch, title: "Church Gathering" },
+  { image: prayer, title: "Prayer & Worship" },
+  { image: preaching, title: "Sharing God's Word" },
+  { image: special, title: "Special Moments" },
+];
+
 function Gallery() {
-  const photos = [
-    {
-      title: "Worship & Praise",
-      category: "Church Worship",
-      image: worship,
-    },
-    {
-      title: "Christmas Celebration",
-      category: "Special Celebration",
-      image: christmas,
-    },
-    {
-      title: "Our Church Family",
-      category: "Fellowship",
-      image: group,
-    },
-    {
-      title: "Church Gathering",
-      category: "Community",
-      image: churchGathering,
-    },
-    {
-      title: "Prayer & Worship",
-      category: "Prayer",
-      image: prayer,
-    },
-    {
-      title: "Sharing God's Word",
-      category: "Preaching",
-      image: preaching,
-    },
-    {
-      title: "Special Moments",
-      category: "Church Memories",
-      image: special,
-    },
-  ];
+  const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <main className="bg-white">
-
-      {/* Hero Section */}
-      <section className="bg-slate-950 py-24 px-6 text-center">
-        <p className="text-amber-400 uppercase tracking-[0.3em] text-sm font-semibold">
-          Moments & Memories
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="bg-[#101D35] px-6 py-24 text-center text-white">
+        <p className="font-semibold uppercase tracking-[4px] text-amber-400">
+          Moments of Faith & Fellowship
         </p>
-
-        <h1 className="text-4xl md:text-6xl font-bold text-white mt-5">
-          Our Church Gallery
+        <h1 className="mt-5 text-4xl font-bold md:text-6xl">
+          Our Gallery
         </h1>
-
-        <p className="text-slate-300 mt-5 max-w-2xl mx-auto leading-7">
-          Capturing beautiful moments of worship, fellowship,
-          celebrations, and our journey together in Christ.
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-300">
+          A collection of beautiful memories from our worship, celebrations,
+          and church family gatherings.
         </p>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-
-          <div className="text-center mb-14">
-            <p className="text-amber-700 uppercase tracking-widest text-sm font-semibold">
-              Our Memories
-            </p>
-
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-4">
-              Life at Athens Nepali Church
-            </h2>
-
-            <p className="text-slate-600 mt-4">
-              Every picture tells a story of faith, love, and togetherness.
-            </p>
-          </div>
-
-          {/* Photo Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            {photos.map((photo) => (
-              <div
-                key={photo.title}
-                className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300"
-              >
-
-                <div className="h-64 overflow-hidden bg-slate-100">
-                  <img
-                    src={photo.image}
-                    alt={photo.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <p className="text-amber-700 text-xs font-semibold uppercase tracking-widest">
-                    {photo.category}
-                  </p>
-
-                  <h3 className="text-xl font-bold text-slate-900 mt-3">
-                    {photo.title}
-                  </h3>
-                </div>
-
-              </div>
-            ))}
-
-          </div>
-        </div>
-      </section>
-
-      {/* Closing Section */}
-      <section className="bg-slate-950 py-20 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            A Journey of Faith and Fellowship
-          </h2>
-
-          <p className="text-slate-300 mt-5 leading-7">
-            We thank God for every moment, every gathering,
-            and every person who is part of our church family.
+      {/* Photo Gallery */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="mb-14 text-center">
+          <p className="font-semibold uppercase tracking-[3px] text-amber-600">
+            Our Memories
           </p>
+          <h2 className="mt-4 text-3xl font-bold text-[#101D35] md:text-5xl">
+            Moments We Cherish
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-gray-600">
+            Every moment is a blessing. Explore memories from our journey
+            together as a church family.
+          </p>
+        </div>
 
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {photos.map((photo, index) => (
+            <button
+              key={index}
+              onClick={() => setSelectedImage(photo)}
+              className="group relative overflow-hidden rounded-2xl bg-gray-100 text-left shadow-sm"
+            >
+              <img
+                src={photo.image}
+                alt={photo.title}
+                loading="lazy"
+                className="h-72 w-full object-cover transition duration-500 group-hover:scale-110"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90" />
+
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-6">
+                <h3 className="text-xl font-bold text-white">
+                  {photo.title}
+                </h3>
+                <span className="text-2xl text-amber-400">↗</span>
+              </div>
+            </button>
+          ))}
         </div>
       </section>
 
-    </main>
+      {/* Image Viewer */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-5"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close image"
+            className="absolute right-6 top-6 text-4xl text-white hover:text-amber-400"
+          >
+            ×
+          </button>
+
+          <div
+            className="max-h-[90vh] max-w-5xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={selectedImage.image}
+              alt={selectedImage.title}
+              className="max-h-[80vh] w-full rounded-xl object-contain"
+            />
+            <h3 className="mt-4 text-center text-xl font-bold text-white">
+              {selectedImage.title}
+            </h3>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

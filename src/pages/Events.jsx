@@ -1,126 +1,122 @@
 
 import { Link } from "react-router-dom";
 
+const events = [
+  {
+    day: "SUNDAY",
+    time: "11:00 AM – 1:00 PM",
+    title: "Sunday Worship Service",
+    description:
+      "Join us for a time of worship, prayer, God's Word, and fellowship together.",
+    type: "In-person",
+    icon: "⛪",
+  },
+  {
+    day: "MONDAY",
+    time: "8:00 PM – 9:00 PM",
+    title: "Online Fellowship",
+    description:
+      "Connect with our church family, share experiences, and encourage one another in faith.",
+    type: "Online – Google Meet",
+    icon: "🤝",
+  },
+  {
+    day: "THURSDAY",
+    time: "7:30 PM – 9:00 PM",
+    title: "Online Bible Study",
+    description:
+      "Study the Bible together, understand God's teachings, and grow spiritually.",
+    type: "Online – Google Meet",
+    icon: "📖",
+  },
+];
+
 function Events() {
-  const events = [
-    {
-      day: "SUNDAY",
-      title: "Sunday Worship Service",
-      time: "11:00 AM – 1:00 PM",
-      type: "In-Person Gathering",
-      description:
-        "Join us for worship, prayer, God's Word, and fellowship with our church family.",
-    },
-    {
-      day: "MONDAY",
-      title: "Online Fellowship",
-      time: "8:00 PM – 9:00 PM",
-      type: "Online via Google Meet",
-      description:
-        "Connect with fellow believers, share encouragement, and grow together in faith.",
-    },
-    {
-      day: "THURSDAY",
-      title: "Online Bible Study",
-      time: "7:30 PM – 9:00 PM",
-      type: "Online via Google Meet",
-      description:
-        "Study the Bible together, understand God's Word, and strengthen your spiritual life.",
-    },
-  ];
-
   return (
-    <main className="bg-white">
-      {/* Header */}
-      <section className="bg-slate-950 py-24 px-6 text-center">
-        <p className="text-amber-400 uppercase tracking-[0.3em] text-sm font-semibold">
-          Stay Connected
+    <div className="bg-white">
+      {/* Hero */}
+      <section className="bg-[#101D35] px-6 py-24 text-center text-white">
+        <p className="font-semibold uppercase tracking-[4px] text-amber-400">
+          Worship • Fellowship • Growth
         </p>
-
-        <h1 className="text-4xl md:text-6xl font-bold text-white mt-5">
+        <h1 className="mt-5 text-4xl font-bold md:text-6xl">
           Events & Gatherings
         </h1>
-
-        <p className="text-slate-300 mt-5 max-w-2xl mx-auto leading-7">
-          Come together in worship, fellowship, and the study of God's Word.
+        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-300">
+          Find opportunities to worship, connect, and grow with our church family.
         </p>
       </section>
 
-      {/* Introduction */}
-      <section className="py-16 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-amber-700 uppercase tracking-widest text-sm font-semibold">
-            Weekly Schedule
+      {/* Schedule */}
+      <section className="mx-auto max-w-6xl px-6 py-24">
+        <div className="mb-14 text-center">
+          <p className="font-semibold uppercase tracking-[3px] text-amber-600">
+            Save Your Time
           </p>
-
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-4">
-            Join Our Weekly Gatherings
+          <h2 className="mt-4 text-3xl font-bold text-[#101D35] md:text-5xl">
+            Our Weekly Schedule
           </h2>
-
-          <p className="text-slate-600 mt-5 leading-8">
-            We invite you to be part of our regular gatherings.
-            Whether in person or online, there is always an opportunity
-            to worship, learn, pray, and connect.
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-gray-600">
+            We invite you to take part in our regular church gatherings.
+            Everyone is welcome.
           </p>
         </div>
-      </section>
 
-      {/* Events */}
-      <section className="bg-slate-50 py-16 px-6">
-        <div className="max-w-5xl mx-auto space-y-6">
+        <div className="space-y-7">
           {events.map((event) => (
             <div
               key={event.day}
-              className="bg-white rounded-xl shadow-sm p-7 md:p-9 grid md:grid-cols-[150px_1fr] gap-6"
+              className="grid items-center gap-6 rounded-2xl border border-gray-100 bg-white p-7 shadow-sm transition hover:shadow-lg md:grid-cols-[150px_1fr_auto] md:p-9"
             >
-              <div className="bg-amber-50 rounded-lg p-5 flex items-center justify-center">
-                <span className="text-amber-700 font-bold tracking-widest">
+              <div className="flex h-28 w-28 flex-col items-center justify-center rounded-2xl bg-[#101D35] text-white">
+                <span className="text-3xl">{event.icon}</span>
+                <span className="mt-2 text-sm font-bold tracking-widest text-amber-400">
                   {event.day}
                 </span>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-slate-900">
+                <h3 className="text-2xl font-bold text-[#101D35]">
                   {event.title}
                 </h3>
 
-                <p className="text-amber-700 font-semibold mt-3">
-                  {event.time}
-                </p>
-
-                <p className="text-slate-500 text-sm mt-2">
-                  {event.type}
-                </p>
-
-                <p className="text-slate-600 leading-7 mt-4">
+                <p className="mt-3 leading-7 text-gray-600">
                   {event.description}
                 </p>
+
+                <p className="mt-4 font-semibold text-amber-600">
+                  {event.time}
+                </p>
+              </div>
+
+              <div>
+                <span className="inline-block rounded-full bg-amber-50 px-5 py-2 text-sm font-semibold text-amber-700">
+                  {event.type}
+                </span>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Location */}
-      <section className="py-16 px-6 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-slate-900">
-            Join Us This Sunday
-          </h2>
+      {/* Invitation */}
+      <section className="bg-[#F8F7F3] px-6 py-20 text-center">
+        <h2 className="text-3xl font-bold text-[#101D35] md:text-4xl">
+          We Look Forward to Seeing You!
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl leading-8 text-gray-600">
+          Whether you are joining us in person or online, you are always
+          welcome to be part of our fellowship.
+        </p>
 
-          <p className="text-slate-600 mt-4">
-            Patision 11, Athens, Greece
-          </p>
-
-          <Link
-            to="/contact"
-            className="inline-block mt-7 bg-amber-500 hover:bg-amber-400 text-slate-950 px-8 py-4 rounded-md font-semibold transition"
-          >
-            Get Directions & Contact
-          </Link>
-        </div>
+        <Link
+          to="/contact"
+          className="mt-8 inline-block rounded-lg bg-amber-500 px-8 py-4 font-bold text-[#101D35] transition hover:bg-amber-400"
+        >
+          Contact Us
+        </Link>
       </section>
-    </main>
+    </div>
   );
 }
 
