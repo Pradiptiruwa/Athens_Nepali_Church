@@ -1,2 +1,80 @@
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 @import "tailwindcss";
+
+@theme {
+  --color-navy: #101D35;
+  --color-navy-light: #1B2C49;
+  --color-gold: #C6A15B;
+  --color-gold-light: #E0C58E;
+  --color-cream: #F8F6F0;
+  --color-ink: #252A33;
+
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Playfair Display", serif;
+}
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #252A33;
+  background: #F8F6F0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+::selection {
+  background: #C6A15B;
+  color: #101D35;
+}
+
+.font-display {
+  font-family: "Playfair Display", serif;
+}
+
+.section-padding {
+  padding: 96px 0;
+}
+
+.container-main {
+  width: min(1200px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 64px 0;
+  }
+
+  .container-main {
+    width: min(100% - 32px, 1200px);
+  }
+}
